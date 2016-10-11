@@ -1,0 +1,62 @@
+    .Table
+    {
+        display: table;
+    }
+    .Title
+    {
+        display: table-caption;
+        text-align: center;
+        font-weight: bold;
+        font-size: larger;
+    }
+    .Heading
+    {
+        display: table-row;
+        font-weight: bold;
+        text-align: center;
+    }
+    .Row
+    {
+        display: table-row;
+    }
+    .Cell
+    {
+        display: table-cell;
+        border: solid;
+        border-width: thin;
+        padding-left: 5px;
+        padding-right: 5px;
+    }
+
+
+
+body
+{
+	line-height: 1.6em;
+}
+
+#hor-zebra
+{
+	font-family: 'Open Sans', sans-serif;
+	font-size: 14px;
+	margin: 0 auto;
+	width: 80%;
+	text-align: left;
+	border-collapse: collapse;
+}
+#hor-zebra th
+{
+	font-size: 14px;
+	font-weight: normal;
+	padding: 10px 8px;
+	color: #20928F;
+}
+#hor-zebra td
+{
+	padding: 8px;
+	color: black;
+}
+#hor-zebra .odd
+{
+	background: #29bcb8; 
+}

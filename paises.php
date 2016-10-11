@@ -1,0 +1,7 @@
+<?
+
+
+$Paises =array('BJ'=>'Benin','BF'=>'Burkina Faso','CM'=>'Cameroon','CF'=>'Central African Republic','TD'=>'Chad','KM'=>'Comores','CD'=>'Congo, Democratic Republic of','CG'=>'Congo, République du','GA'=>'Gabon','GN'=>'Guinea','CI'=>'Ivory Coast','NE'=>'Niger','TG'=>'Togo','AR'=>'Argentina','BS'=>'Bahamas','BB'=>'Barbados','BO'=>'Bolivia','BR'=>'Brazil','CA'=>'Canada','CL'=>'Chile','CO'=>'Colombia','CR'=>'Costa Rica','DO'=>'Dominican Republic','EC'=>'Ecuador','SV'=>'El Salvador','GT'=>'Guatemala','GY'=>'Guyana','HN'=>'Honduras','JM'=>'Jamaica','MX'=>'Mexico','PA'=>'Panama','PY'=>'Paraguay','PE'=>'Peru','SR'=>'Suriname','TT'=>'Trinidad y Tobago','UY'=>'Uruguay','VE'=>'Venezuela','AL'=>'Albania','AM'=>'Armenia','AT'=>'Austria','BE'=>'Belgium','HR'=>'Croatia','CZ'=>'Czech Republic','DK'=>'Denmark','FI'=>'Finland','FR'=>'France','DE'=>'Germany','HU'=>'Hungary','LT'=>'Lithuania','MK'=>'Macedonia','MD'=>'Moldova','NL'=>'Netherlands','RU'=>'Russia','RS'=>'Serbia','SI'=>'Slovenia','SE'=>'Sweden','CH'=>'Switzerland','TR'=>'Turkey','UA'=>'Ukraine','GB'=>'United Kingdom','AU'=>'Australia','KH'=>'Cambodia','CN'=>'China','JP'=>'Japan','NZ'=>'New Zealand','PH'=>'Philippines','TH'=>'Thaïland','VN'=>'Vietnam','DZ'=>'Algeria','MR'=>'Mauritania','MA'=>'Morocco');
+
+
+print_r($Paises);

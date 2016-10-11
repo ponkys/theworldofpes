@@ -1,0 +1,144 @@
+
+
+li {
+    display:inline-block;
+    padding-right:5px;
+    padding-left:5px
+}
+
+.titulo {
+    margin-top:0;
+    margin-bottom:10px;
+}
+
+html, body {
+    font-family: 'Open Sans', sans-serif;
+    font-size: 14px;
+    line-height: 1rem;
+    color: #666;
+    background-color: #fff;
+    padding: 0;
+    margin: 0;
+    width: 100%;
+    height: 100%;
+}
+
+h1 {
+    color: #46ddda;
+    text-transform: uppercase;
+}
+
+#header {
+    background-color: #20928F;
+    width: 100%;
+}
+
+.brand {
+    width: 10%;
+    margin: 0 auto;
+}
+.img_to_home {
+    text-decoration: none;
+}
+
+
+.header_info {
+    width: 96%;
+    text-align: center;
+    display: inline-block;
+    margin: 0 auto;
+}
+
+.main_title {
+    color: white;
+}
+
+.h3_title {
+    color: white;
+}
+
+.header_links {
+    width: 96%;
+    display: inline-block;
+    text-align: center;
+    margin: 0 auto;
+    padding-bottom: 1rem;
+}
+
+.btn {
+    text-decoration: none;
+}
+
+.btn-section {
+    text-decoration: none;
+    border: 1px solid rgba(250,250,250,0.3);
+    padding: 0 1rem;
+    font-size: 1rem;
+    border-radius: .35rem;
+    margin-bottom: 3rem;
+}
+
+.btn-section:hover {
+    background-color: rgba(250,250,250,0.3);
+}
+
+#vmap {
+    width: 100%;
+    height: 100%;
+}
+
+#footer_map {
+    background-color: #d8d8d8;
+    height: 100%;
+    padding-top: 1rem;
+    margin-top: 0;
+    text-align: right;
+    right: 2rem;
+    padding-right: 2rem;
+}
+
+/* Estilos para el modal. */
+
+.layer {
+	background-color: rgba(0, 0, 0, .8);
+	display: none;
+	height: 100%;
+	left: 0;
+	position: absolute;
+	text-align: center;
+	top: 0;
+	width: 100%;
+}
+.layer .modal {
+	background-color: rgba(250, 250, 250, 1);
+	margin: 20px auto;
+	position: relative;
+	width: 50%;
+    height: 100%;
+
+}
+.layer .modal .modal-header {
+	padding: 1em;
+    text-transform: uppercase;
+    background-color: #20928F;
+    font-weight: 700;
+    color: #fff;
+}
+.layer .modal .modal-header .close-modal {
+	position: absolute;
+	right: 0;
+	top: 0;
+    font-size: 1.2em;
+    color: black;
+    padding-right: 1rem;
+    padding-top: 0.5rem;
+}
+.layer .modal .modal-body {
+	height: 80%;
+	overflow: scroll;
+	padding: 15px;
+	text-align: left;
+}
+.layer .modal .modal-footer {
+	background-color: #eee;
+}

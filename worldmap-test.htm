@@ -1,0 +1,316 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+  <head>
+    <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+    <title>The World of Public Employment Services Survey</title>
+    <link href="/css/animate.min.css" rel="stylesheet"> 
+    <link href="/css/font-awesome.min.css" rel="stylesheet">
+    <link rel="shortcut icon" href="images/favicon.ico">
+	
+	  <link href="/css/bootstrap.min.css" rel="stylesheet">
+  <link href="/css/animate.min.css" rel="stylesheet"> 
+  <link href="/css/font-awesome.min.css" rel="stylesheet">
+  <link href="/css/lightbox.css" rel="stylesheet">
+  <link href="/css/main.css" rel="stylesheet">
+  <link id="/css-preset" href="css/presets/preset1.css" rel="stylesheet">
+  <link href="/css/responsive.css" rel="stylesheet">
+
+	
+	
+    <link href="./maps/jqvmap.css" media="screen" rel="stylesheet" type="text/css">
+    <script type="text/javascript" src="http://code.jquery.com/jquery-1.11.3.min.js"></script>
+    <script type="text/javascript" src="./maps/jquery.vmap.js"></script>
+    <script type="text/javascript" src="./maps/jquery.vmap.world.js" charset="utf-8"></script>
+    <style>
+      html, body {
+        font-family: 'Open Sans', sans-serif;
+        font-size: 14px;
+        line-height: 0.6rem;
+        color: #666;
+        background-color: #fff;
+        padding: 0;
+        margin: 0;
+        width: 100%;
+        height: 100%;
+      }
+
+      h1 {
+        color: #46ddda;
+        text-transform: uppercase;
+      }
+      
+      #header {
+        text-align: center;
+        -webkit-box-shadow: 0px 4px 17px -6px rgba(0,0,0,0.73);
+        -moz-box-shadow: 0px 4px 17px -6px rgba(0,0,0,0.73);
+        box-shadow: 0px 4px 17px -6px rgba(0,0,0,0.73); 
+      }
+
+      #vmap {
+        width: 100%;
+        height: 100%;
+        max-height: 650px;
+        background-color: red;
+      }
+
+      .left-control {  
+        height: 100%;
+        width: 100%;
+        line-height: 1.5rem;
+        border-radius: 50%;
+        font-size: 0.7rem;
+        color: #20928F;
+        text-align: center;
+        -webkit-transition: all 0.5s ease;
+        -moz-transition: all 0.5s ease;
+        -ms-transition: all 0.5s ease;
+        -o-transition: all 0.5s ease;
+        transition: all 0.5s ease;
+      }
+
+      .left-control:hover {
+        color: turquoise;
+      }
+
+      /* Estilos para el modal, feos pero para guiarte. */
+    	.layer {
+    		background-color: rgba(0, 0, 0, .8);
+    		display: none;
+    		height: 100%;
+    		left: 0;
+    		position: absolute;
+    		text-align: center;
+    		top: 0;
+    		width: 100%;
+    	}
+    	.layer .modal {
+    		background-color: rgba(250, 250, 250, 1);
+    		margin: 20px auto;
+    		position: relative;
+    		width: 50%;
+        height: 100%;
+        
+    	}
+    	.layer .modal .modal-header {
+    		padding: 1em;
+        text-transform: uppercase;
+        background-color: #20928F;
+        font-weight: 700;
+        color: #fff;
+    	}
+    	.layer .modal .modal-header .close-modal {
+    		position: absolute;
+    		right: 0;
+    		top: 0;
+        font-size: 1.2em;
+        color: black;
+        padding-right: 1rem;
+        padding-top: 0.5rem;
+    	}
+    	.layer .modal .modal-body {
+    		height: 800px;
+    		overflow: scroll;
+    		padding: 15px;
+    		text-align: left;
+    	}
+    	.layer .modal .modal-footer {
+    		background-color: #eee;
+    	}
+    </style>
+    <script type="text/javascript" src="./maps/jquery.datos_paises.js"></script>
+    <script type="text/javascript">
+      var paises = 'BJ,BF,CM,CF,TD,KM,CD,CG,GA,GN,CI,NE,TG,AR,BS,BB,BO,BR,CA,CL,CO,CR,DO,EC,SV,GT,GY,HN,JM,MX,PA,PY,PE,SR,TT,UY,VE,AL,AM,AT,BE,HR,CZ,DK,FI,FR,DE,HU,LT,MK,MD,NL,RU,RS,SI,SE,CH,TR,UA,GB,AU,KH,CN,JP,NZ,PH,TH,VN,DZ,MR,MA';     
+
+		//pruebas variable global
+//		var countries_data = {'es' : '','us' : '','bj' : '58','bf' : '28','cm' : '60','cf' : '49','td' : '33','km' : '28','cd' : '23','cg' : '34','ga' : '37','gn' : '53','ci' : '52','ne' : '32','tg' : '40','ar' : '54','bs' : '29','bb' : '25','bo' : '33','br' : '45','ca' : '43','cl' : '22','co' : '58','cr' : '55','do' : '52','ec' : '45','sv' : '46','gt' : '46','gy' : '31','hn' : '33','jm' : '47','mx' : '65','pa' : '44','py' : '40','pe' : '39','sr' : '25','tt' : '47','uy' : '32','ve' : '28','al' : '65','am' : '51','at' : '71','be' : '61','be' : '65','be' : '62','hr' : '70','cz' : '69','dk' : '68','fi' : '60','fr' : '74','de' : '73','hu' : '65','lt' : '60','mk' : '71','md' : '63','nl' : '55','ru' : '18','rs' : '65','si' : '62','se' : '64','ch' : '53','tr' : '58','ua' : '5','gb' : '57','au' : '57','kh' : '52','cn' : '68','jp' : '44','nz' : '45','ph' : '57','th' : '2','vn' : '60','dz' : '57','mr' : '40','ma' : '58','ma' : '58','ma' : '58',};
+//var countries_data2 = {'br' : '58','bj' : '28','es' : '60','us' : '49','td' : '33','km' : '28','cd' : '23','cg' : '34','ga' : '37','gn' : '53','ci' : '52','ne' : '32','tg' : '40','ar' : '54','bs' : '29','bb' : '25','bo' : '33','br' : '45','ca' : '43','cl' : '22','co' : '58','cr' : '55','do' : '52','ec' : '45','sv' : '46','gt' : '46','gy' : '31','hn' : '33','jm' : '47','mx' : '65','pa' : '44','py' : '40','pe' : '39','sr' : '25','tt' : '47','uy' : '32','ve' : '28','al' : '65','am' : '51','at' : '71','be' : '61','be' : '65','be' : '62','hr' : '70','cz' : '69','dk' : '68','fi' : '60','fr' : '74','de' : '73','hu' : '65','lt' : '60','mk' : '71','md' : '63','nl' : '55','ru' : '18','rs' : '65','si' : '62','se' : '64','ch' : '53','tr' : '58','ua' : '5','gb' : '57','au' : '57','kh' : '52','cn' : '68','jp' : '44','nz' : '45','ph' : '57','th' : '2','vn' : '60','dz' : '57','mr' : '40','ma' : '58','ma' : '58','ma' : '58',};
+//var mis_datos = countries_data2;
+        
+		function myFunction(id) {
+          // jQuery('#vmap').vectorMap({
+          //  values: countries_data+id});
+		  //jQuery('#vmap').vectorMap('set', 'values', countries_data+id);
+		 // $('#vmap').vectorMap('select', 'es');
+		 //alert(id);
+		// var test =countries_data+id;
+			jQuery('#vmap').vectorMap('set', 'values', id);
+			//jQuery('#vmap').vectorMap('set', 'scaleColors', ['#01DFD7', '#088A85']);
+        }
+
+		//final de mis pruebas
+		
+		function touch_detect() {
+          return 'ontouchstart' in window || 'onmsgesturechange' in window || navigator.msMaxTouchPoints > 0;
+        }
+		
+        jQuery(document).ready(function () {
+
+        	/* Evento para cerrar el modal. */
+        	$('.layer, .close-modal').on('click', function(event) {
+        		event.preventDefault();
+        		$(this).closest('.layer').fadeOut();
+        	})
+        	/* Evento para evitar que el modal se cierra si dan click sobre modal-body. */
+        	$('.modal').on('click', function(event) {
+        		event.stopPropagation();
+        	})
+
+          jQuery('#vmap').vectorMap({
+            map: 'world_en',
+            enableZoom: false,
+            showTooltip: true,
+            values: countries_data,
+			backgroundColor: '#D8D8D8',
+            scaleColors: ['#01DFD7', '#088A85'],
+            normalizeFunction: 'polynomial',
+  			//showLabels: true,
+            onRegionClick: function (element, code, region) {
+  			 if (paises.toLowerCase().indexOf(code) <= -1) {
+  					event.preventDefault();
+  				   alert('There is no information available for ' + region);
+  				} else {
+  						if (!touch_detect()) {
+  						  // we're not on a mobile device, handle the click
+  						  var message = 'You clicked "' + region + '" which has the code: ' + code.toUpperCase();
+  						  //console.log(message);
+  						 $('.layer').fadeIn()
+  						 /* El ajax va a hacer la solicitud hasta el archivo php y todo lo que retorna
+  								se queda guardado en la variable data */
+  							  $.ajax({
+  								  url: "./countries.php?region=" + code.toUpperCase(),
+  								}).done(function(data) {
+  									/* Aca imprimo la información que retornó el .php en modal-body. */
+  								  /////$('.modal .modal-body p').html(data)
+  								  /* Aquí hago que el modal sea ahora visible. */ 
+  								  $('.layer').fadeIn()
+  								});
+
+  						  // window.open("./countries.php?region=" + code.toUpperCase());
+  						  }
+                     }
+            },
+  		  onLabelShow: function (event, label, code) {
+  			if (paises.toLowerCase().indexOf(code) <= -1) {
+  					//event.preventDefault();
+  				   label.append(' is not included in the Survey. <BR>There is no information available.');
+  				} 
+  			},
+            onRegionOver: function (element, code, region) {
+   // if it's not in the approved list, do nothing, 
+      // else allow normal behavior
+      if (paises.toLowerCase().indexOf(code) <= -1) {
+          event.preventDefault();
+      } else {
+              if (touch_detect()) {
+                /// we're not on a mobile device, handle the click
+                var message = 'You clicked "' + region + '" which has the code: ' + code.toUpperCase();
+                ///alert(message);
+  			   window.open("./countries.php?region=" + code.toUpperCase());
+              }
+            }
+            }
+          });
+        });
+    </script>
+  </head>
+
+  <body>
+    
+     <!--.preloader-->
+  <div class="preloader"> <i class="fa fa-circle-o-notch fa-spin"></i></div>
+  <!--/.preloader-->
+
+ <header id="home">
+
+    <div class="main-nav">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="/">
+            <h1><img class="img-responsive" src="images/marca_retocada_enana.png" alt="logo"></h1>
+          </a>                    
+        </div>
+        <div class="collapse navbar-collapse">
+          <ul class="nav navbar-nav navbar-right">                 
+            <li class="scroll active"><a href="#home">Home</a></li>
+            <li class="scroll"><a href="#changing_world">A changing world</a></li>
+
+            <li class="scroll"><a href="#public_employment">The role of PES</a></li> 
+
+            <li class="scroll"><a href="#success">Success Factors</a></li> 
+
+             <li class="scroll"><a href="#rethink">Rethinking PES</a></li> 
+
+            <li class="scroll"><a href="#features">The book</a></li>
+
+            <li class="scroll"><a href="#download">Download</a></li> 
+                       
+          </ul>
+          <ul class="lang ">
+            <li>Language </li>
+            <li><a href="#"> SP</a></li>       
+            <li><a href="#"> FR</a></li>  
+          </ul>
+        </div>
+      </div>
+    </div><!--/#main-nav-->
+  </header><!--/#home-->
+ <div id="vmap" ></div>
+   <div class="boton">
+					<p><a href="#" onClick="myFunction(countries_data)">Clicka</a></p><button onclick="myFunction(countries_data2)">Click me</button>
+					 <span class="folio-expand"><a href="#modal_1"><i class="fa fa-search-plus"></i></a></span>
+				</div>
+    
+	
+	
+ <!-- 
+  <div id="header" class="navbar-header">
+      <a class="navbar-brand" href="index_en.php">
+        <h1 ><img class="img-responsive" src="images/marca_retocada_enana.png" alt="logo"></h1>
+      </a>
+    	<h1 class="animated fadeInLeftBig">Number of services provided by Public Employment Services</h1>
+    	<h2 class="animated fadeInUpBig">Based on the Survey conducted by WAPES, IDB and OECD</h2>
+    	<p class="animated wow fadeInUp" data-wow-duration="30000ms" data-wow-delay="10000ms">Click on any country to review the services provided by their PES</p>
+      <a class="left-control" href="index_en.php"><i class="fa fa-angle-left">  Go to main site</i></a>
+    </div>
+<div class="boton">
+					<p><a href="#" onClick="myFunction(countries_data)">Clicka</a></p><button onclick="myFunction(countries_data2)">Click me</button>
+				</div>
+    <div id="vmap"></div>
+
+     Este es el modal aquí puedes ordenar todo como necesitas. -->
+		<div class="layer">
+			<div class="modal">
+				<!-- Aquí dejas titulos y el botón para cerrar el modal. -->
+				<div class="modal-header">
+					<p>Services provided by the PESs</p>
+					<a href="#close" class="close-modal"><i class="fa fa-close"></i></a>
+				</div>
+				<!-- Aquí se imprime el contenido que da como resultado el ajax. -->
+				<div class="modal-body">
+					<p>Body</p>
+				</div>
+				<!-- Aquí puedes poner botones o acciones, es opcional. -->
+				<div class="modal-footer">
+					<p>theworldofpes.org</p>
+				</div>
+			</div>
+		</div>
+  
+    <script type="text/javascript" src="js/bootstrap.min.js"></script>
+  <script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=true"></script>
+  <script type="text/javascript" src="js/jquery.inview.min.js"></script>
+  <script type="text/javascript" src="js/wow.min.js"></script>
+  <script type="text/javascript" src="js/mousescroll.js"></script>
+  <script type="text/javascript" src="js/smoothscroll.js"></script>
+  <script type="text/javascript" src="js/jquery.countTo.js"></script>
+  <script type="text/javascript" src="js/lightbox.min.js"></script>
+  <script type="text/javascript" src="js/main.js"></script>
+  
+  </body>
+</html>
